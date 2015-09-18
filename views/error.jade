@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  div.container#top(style='margin-top:60px')
+  div.container#content
+    div.row
+      div.col-md-4
+        p
+          img(src='/img/rainycloud.png', style='border:0; width:318px; height:318px', title="It's a rainy day. (Error)")
+
+      div.col-md-8
+        h1 #appfail <small>oops, it's rainy in this cloud app today...
+
+        p &nbsp;
+
+        h1= message
+        h2= error.status
+        
+        p &nbsp;
+
+        //
+          #{error.stack}
+
+        p
+          | If you believe this is a bug, please report it to 
+          | 
+          if correlationId
+            a.btn.btn-sm.btn-muted(href='mailto:@?subject=Portal Error, Correlation ID: ' + correlationId)
+              | support@contoso.com
+          else
+            a.btn.btn-sm.btn-muted(href='mailto:@.com')
+              | support@contoso.com
+          | - thanks.
+
+        p
+          a.btn.btn-default(href='/') OK
+
+        if correlationId
+          hr
+          small
+            | Correlation ID: #{correlationId}

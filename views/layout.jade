@@ -1,0 +1,57 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    title= (user && user.github && user.github.username) ? title + ' - ' + user.github.username : title
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='author', content='Azure Team')
+    link(href='/css/bootstrap.min.css?1', rel='stylesheet')
+    link(href='/css/oss.css?1d', rel='stylesheet')
+    link(href='/css/docs.css', rel='stylesheet')
+    link(rel='shortcut icon', href=(serverHostingMode ? 'https://az559133.vo.msecnd.net/Content/4.7.0.455294.140803-1058/Images/MsPortalFx/favicon.ico' : '/favicon.ico'))
+    meta(name='msapplication-config', content='none')
+    //[if lt IE 9]
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"/>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"/>
+      [endif]
+    script(type='text/javascript', src='/js/jquery.min.js')
+    script(type='text/javascript', src='/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/timeago.js')
+    script(type='text/javascript', src='/js/jquery.uitablefilter.js')
+    | <script type='text/javascript'>
+    | $(document).ready(function() {
+    block js_doc_ready
+    | jQuery('time').timeago();
+    | });
+    | </script>
+  body
+    // content
+    block content
+    // end of content
+
+    footer.wiki-footer
+      hr
+      div.container
+        div
+          p(class='pull-right')
+            a(href='#top', title=headSha) Back to top
+            if ! user
+              |  &middot; 
+              a(href='/signin/github') Sign In
+        
+        div
+          p
+            small
+              | &copy; Contoso
+              br
+              if serverName && correlationId
+                | Powered by 
+                span(title=correlationId + ' ' + serverName) Microsoft Azure 
+                | and GitHub
+              else
+                | Powered by Microsoft Azure and GitHub
+
+    if (appInsightsKey)
+      script(type='text/javascript').
+        var appInsights=window.appInsights||function(config){function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t}({instrumentationKey:"#{appInsightsKey}"});window.appInsights=appInsights;appInsights.trackPageView();

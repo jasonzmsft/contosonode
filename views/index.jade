@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  div.container
+
+    h1 Hi!
+    
+    p.lead Contoso is a leading providing of partially implemented web apps.
+    
+    h1
+      | This page was generated 
+      time(datetime=now.toISOString())= now.toDateString()
+
+    p Thanks for visiting our web site. This app is powered by Node.js, Microsoft Azure App Service, and is stored on GitHub.
+
+    p What can we help you find?
+
+    ul
+      li
+        a(href='https://github.com/Azure/') Azure open source on GitHub  <i class="glyphicon glyphicon-share-alt"></i>
+      li
+        a(href='http://azure.com') Azure.com  <i class="glyphicon glyphicon-share-alt"></i>
+      li
+        a(href='http://portal.azure.com') Azure Portal  <i class="glyphicon glyphicon-share-alt"></i>

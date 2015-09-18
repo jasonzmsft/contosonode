@@ -1,0 +1,90 @@
+.githubContributors {
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  padding: 15px 0;
+  margin: 30px 0;
+  position: relative;
+}
+.githubContributors .author-bio {
+  display: inline-block;
+}
+.githubContributors .author-content {
+  display: inline-block;
+  margin: 6px 0 6px 10px;
+  width: auto;
+  vertical-align: top;
+}
+.githubContributors .author-content > span {
+  display: block;
+}
+.githubContributors .author-content .username {
+  font-family: wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2em;
+  color: #505050;
+  margin-bottom: auto;
+}
+.githubContributors .author-content .username a {
+  text-decoration: none;
+  color: #505050;
+}
+.githubContributors .author-img {
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+.githubContributors .contributors {
+  display: none;
+}
+@media only screen and (min-width: 61.25em) {
+  .githubContributors {
+    padding: 15px 20px;
+  }
+  .githubContributors .author-content {
+    width: 250px;
+  }
+  .githubContributors .contributor-img {
+    background-repeat: no-repeat;
+    border-radius: 12.5px;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    background-size: 25px;
+  }
+  .githubContributors .contributors {
+    display: block;
+    border-left: 1px solid #dedede;
+    padding-left: 6px;
+    position: absolute;
+    right: 20px;
+    bottom: 19px;
+  }
+  .githubContributors .contributors .contribute {
+    margin-bottom: 6px;
+  }
+  .githubContributors .contributors .contribute span {
+    color: #969696;
+    margin-right: 15px;
+  }
+  .githubContributors .contributors .contribute a {
+    float: right;
+  }
+  .githubContributors .contributors ul {
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .githubContributors .contributors ul > li {
+    height: 25px;
+    width: 25px;
+    float: left;
+    margin: 0 6px 0 0;
+  }
+  .githubContributors .contributors ul > li:last-child {
+    margin-right: 0;
+  }
+}
